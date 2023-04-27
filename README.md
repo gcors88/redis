@@ -19,8 +19,11 @@ To run the project, after cloning it and configuring the env's, execute:
 Once inside the docker terminal, run:
 
 ```npm install --legacy-peer-deps```
+
 ```npm run db:create && npm run db:migrate:run```
+
 ```npm run db:seed:run```
+
 ```exit```
 
 Outside the docker terminal, run:
