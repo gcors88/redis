@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  base: &base
+    hostname: base
+    image: test/redis
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+
+  app:
+    <<: *base
+    command: npm run dev
+    env_file: .env
+    depends_on:
+      - redis
+    links:
+      - redis
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: dev
+      PORT: 3001
+
+  redis:
+    image: bitnami/redis:latest
+    expose:
+      - 6379
+    environment:
+      REDIS_PASSWORD: 1234
