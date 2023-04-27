@@ -28,7 +28,7 @@ Once inside the docker terminal, run:
 
 Outside the docker terminal, run:
 
-```docker compose app```
+```docker compose up app```
 
 Access the API at [link](http://localhost:3001)
 
